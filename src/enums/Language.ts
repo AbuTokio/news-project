@@ -1,0 +1,15 @@
+export enum Language {
+  AR = "Arabisch",
+  DE = "Deutsch",
+  EN = "Englisch",
+  ES = "Spanisch",
+  FR = "Französisch",
+  HE = "Hebräisch",
+  IT = "Italienisch",
+  NL = "Niederländisch",
+  NO = "Norwegisch",
+  PT = "Portugisisch",
+  RU = "Russisch",
+  SV = "Schwedisch",
+  ZH = "Chinesisch",
+}
