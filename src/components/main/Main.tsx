@@ -16,7 +16,7 @@ export default function Main({ news }: MainProps) {
             return (
               <div
                 key={index}
-                className="p-8 h-160 w-140 border-2 border-accent rounded-xl flex flex-col justify-between items-center">
+                className="p-8 h-160 w-140 border-2 border-accent bg-zinc-50 shadow-md shadow-zinc-400 rounded-xl flex flex-col justify-between items-center">
                 <Card article={article} />
               </div>
             )
