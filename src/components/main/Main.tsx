@@ -9,19 +9,21 @@ interface MainProps {
 
 export default function Main({ news }: MainProps) {
   return (
-    <main>
+    <main className="p-16 grid grid-cols-[repeat(auto-fit,minmax(35rem,1fr))] place-items-center gap-8">
       {news ? (
         <>
           {news.articles.map((article: Article, index: number) => {
             return (
-              <div key={index}>
+              <div
+                key={index}
+                className="p-8 h-160 w-140 border-2 border-accent rounded-xl flex flex-col justify-between items-center">
                 <Card article={article} />
               </div>
             )
           })}
         </>
       ) : (
-        <p>...</p>
+        <p>News will be displayed when you search...</p>
       )}
     </main>
   )
