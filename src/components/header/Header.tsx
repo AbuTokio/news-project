@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Language } from "../../enums/Language"
 import type { News } from "../../interfaces/News"
 import { Parameter } from "../../enums/Parameter"
@@ -10,8 +10,8 @@ interface HeaderProps {
 
 export default function Header({ setNews }: HeaderProps) {
   const [searchValue, setSearchValue] = useState<string>()
-  const [language, setLanguage] = useState<Language>()
-  const [sortValue, setSortValue] = useState<string>()
+  const [language, setLanguage] = useState<Language>("en" as Language)
+  const [sortValue, setSortValue] = useState<string>("relevancy")
   const [API_BASE_URL] = useState<string>("https://newsapi.org/v2/everything?")
 
   const fetchNews = async (url: string): Promise<void> => {
@@ -28,6 +28,10 @@ export default function Header({ setNews }: HeaderProps) {
     const url: string = `${API_BASE_URL}${apiParameters.join("&")}&apiKey=${import.meta.env.VITE_API_KEY}`
     await fetchNews(url)
   }
+
+  useEffect(() => {
+    searchNews()
+  }, [])
 
   return (
     <header className="border-b-1 p-16 flex flex-col gap-16">
